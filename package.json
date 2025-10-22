@@ -1,0 +1,22 @@
+{
+  "name": "system7",
+  "version": "1.0.0",
+  "description": "A bare bones npm module for native HTML web components",
+  "main": "dist/index.js",
+  "module": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "mkdir -p dist && cp src/*.js dist/",
+    "dev": "python3 -m http.server 8000",
+    "serve": "npm run build && npm run dev",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": ["web-components", "custom-elements", "html", "javascript"],
+  "author": "",
+  "license": "ISC",
+  "files": [
+    "dist/",
+    "src/",
+    "README.md"
+  ]
+}
