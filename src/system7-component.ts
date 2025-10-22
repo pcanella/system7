@@ -4,7 +4,12 @@
  * This class provides a foundation for building custom elements using
  * the native Web Components API.
  */
+
+import { getCompiledStyles } from './utils/style-loader.js';
+
 export class System7Component extends HTMLElement {
+  declare shadowRoot: ShadowRoot;
+
   constructor() {
     super();
     
@@ -18,34 +23,17 @@ export class System7Component extends HTMLElement {
   /**
    * Initialize the component - override in subclasses
    */
-  init() {
+  protected init(): void {
     this.render();
   }
 
   /**
    * Render the component - override in subclasses
    */
-  render() {
+  protected render(): void {
+    const styles = getCompiledStyles('system7-component');
     this.shadowRoot.innerHTML = `
-      <style>
-        :host {
-          display: block;
-          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-          padding: 1rem;
-          border: 1px solid #ccc;
-          border-radius: 4px;
-          background: #f9f9f9;
-        }
-        
-        .system7-header {
-          font-weight: bold;
-          margin-bottom: 0.5rem;
-        }
-        
-        .system7-content {
-          color: #666;
-        }
-      </style>
+      <style>${styles}</style>
       
       <div class="system7-header">
         System7 Component
@@ -59,14 +47,14 @@ export class System7Component extends HTMLElement {
   /**
    * Observed attributes - override in subclasses to specify which attributes to watch
    */
-  static get observedAttributes() {
+  static get observedAttributes(): string[] {
     return [];
   }
 
   /**
    * Called when an observed attribute changes
    */
-  attributeChangedCallback(name, oldValue, newValue) {
+  attributeChangedCallback(name: string, oldValue: string | null, newValue: string | null): void {
     // Override in subclasses to handle attribute changes
     this.render();
   }
@@ -74,14 +62,14 @@ export class System7Component extends HTMLElement {
   /**
    * Called when the element is inserted into the DOM
    */
-  connectedCallback() {
+  connectedCallback(): void {
     // Override in subclasses for setup logic
   }
 
   /**
    * Called when the element is removed from the DOM
    */
-  disconnectedCallback() {
+  disconnectedCallback(): void {
     // Override in subclasses for cleanup logic
   }
 }
