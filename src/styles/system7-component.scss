@@ -1,0 +1,19 @@
+@use 'variables' as *;
+
+:host {
+  display: block;
+  font-family: $system7-font-family;
+  padding: $system7-padding;
+  border: 1px solid $system7-border-color;
+  border-radius: $system7-border-radius;
+  background: $system7-background-color;
+}
+
+.system7-header {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.system7-content {
+  color: $system7-text-color;
+}

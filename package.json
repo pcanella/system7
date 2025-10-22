@@ -1,0 +1,38 @@
+{
+  "name": "system7",
+  "version": "1.0.0",
+  "description": "A bare bones npm module for native HTML web components with TypeScript and SCSS",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build:styles": "node build-styles.cjs",
+    "build:ts": "tsc",
+    "build": "npm run build:styles && npm run build:ts",
+    "dev": "python3 -m http.server 8000",
+    "serve": "npm run build && npm run dev",
+    "test": "echo \"No tests specified\" && exit 0",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "web-components",
+    "custom-elements",
+    "html",
+    "javascript",
+    "typescript",
+    "scss"
+  ],
+  "author": "",
+  "license": "ISC",
+  "files": [
+    "dist/",
+    "src/",
+    "README.md"
+  ],
+  "devDependencies": {
+    "@types/node": "^24.9.1",
+    "sass": "^1.93.2",
+    "typescript": "^5.9.3"
+  }
+}
